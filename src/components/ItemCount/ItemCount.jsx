@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import comicImg from '../../assets/img/novedades/nov1.jpg'
 
 
 
-export const ItemCount = ({nombre,numero}) => {
 
-let stock = 5;
+export const ItemCount = ({cantidad}) => {
+
+let stock = cantidad;
+
 
 const [count, setCount] = useState(0);
 
@@ -27,19 +28,7 @@ const restar = ()=>{
   }
 }
 
-return <div className="col-md-3  col-6">
-
-  
-
-    <div className="card ">
-      <div className="card-header text-center">
-        <p className="no-dec" href="pages/comics/example/comic_view.html">{nombre} - <b>#{numero}</b></p>
-
-      </div>
-
-      <img className="img-fluid" src={comicImg} alt="Comic Novedad Demon Slayer"/>
-
-      <div className="card-footer">
+return  <div className="card-footer">
         <div className='row center'> 
           <input className='col-3' readOnly value={count} /> 
           <button className='btn text-white bg-dark mx-1 col-3' onClick={restar}>-</button>  
@@ -50,10 +39,5 @@ return <div className="col-md-3  col-6">
         </div>
       </div>
 
-    </div>
 
- 
-
-
-</div>;
 };

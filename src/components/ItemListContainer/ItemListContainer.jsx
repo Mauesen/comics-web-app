@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getFetch } from '../../assets/utilities/mock'
-import { ItemCount } from '../ItemCount/ItemCount'
+import { ItemList } from '../ItemList/ItemList'
+import { Loading } from '../Loading/Loading'
 
 export const ItemListContainer = ({titulo}) => {
 
@@ -13,9 +14,8 @@ useEffect(() => {
   getFetch
   .then(res => setProductos(res))
   .catch(err => console.log(err))
-  //.then(respuesta => console.log(respuesta))
   .finally(()=> setloading(false))   
-  //console.log('api')     
+ 
 
 
 }, []);
@@ -29,11 +29,11 @@ return (
 
     <div className="row">
 
-        {loading ? <h2>cargando</h2>:
+        {loading ? <Loading></Loading>:
         
             productos.map( p =>
 
-                <ItemCount key={p.id} nombre={p.name} numero={p.issue}></ItemCount>
+                <ItemList key={p.id} nombre={p.name} numero={p.issue} portada={p.cover} stock={p.stock}></ItemList>
             )
         
         
