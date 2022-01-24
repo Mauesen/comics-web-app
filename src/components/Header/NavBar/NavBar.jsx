@@ -1,7 +1,7 @@
-import {Cartwidget} from '../CartwIdget/Cartwidget';
+import {CartWidget} from '../CartWidget/CartWidget';
 import {NavItem} from './NavItem';
 
-import logo from '../../../img/logo.png';
+import logo from '../../../assets/img/logo.png';
 
 
 export const NavBar = ({brand}) => {
@@ -45,7 +45,7 @@ return (
 
         <div >
 
-            <p className="nav-link  text-white" ><Cartwidget></Cartwidget></p>
+            <p className="nav-link  text-white" ><CartWidget></CartWidget></p>
 
         </div>
 
