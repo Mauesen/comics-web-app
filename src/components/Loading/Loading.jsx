@@ -1,5 +1,5 @@
 import React from 'react';
-import loading from '../../assets/img/novedades/loading.gif'
+import loading from '../../assets/img/loading.gif'
 
 export const Loading = () => {
   return <div className="col-md-3  col-6">

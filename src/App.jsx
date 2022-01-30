@@ -1,4 +1,5 @@
 
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import {Header} from './components/Header/Header';
 import {ItemListContainer} from './components/ItemListContainer/ItemListContainer'
@@ -6,17 +7,22 @@ import {ItemListContainer} from './components/ItemListContainer/ItemListContaine
 
 const App = ()=> {
   return (
-    <div className="App">
 
-      <Header></Header>
-      <main>
+    <BrowserRouter>
+      <div className="App">
 
-        <section id="novedades">
-          <ItemListContainer titulo="Novedades"></ItemListContainer>
-        </section>
-      </main>
-      
-    </div>
+        <Header></Header>
+        <main>
+          <Routes>
+
+            <Route path='/' element={ <ItemListContainer titulo="Novedades"/>}/> 
+          
+           
+          </Routes>
+        </main>
+        
+      </div>
+    </BrowserRouter>
   );
 }
 

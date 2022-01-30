@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { getFetch } from '../../assets/utilities/mock'
+import  getProductos  from '../../assets/utilities/mock'
 import { ItemList } from '../ItemList/ItemList'
 import { Loading } from '../Loading/Loading'
+import { Section } from '../Section/Section'
 
 export const ItemListContainer = ({titulo}) => {
 
@@ -11,7 +12,7 @@ const [loading, setloading] = useState(true)
 
 useEffect(() => {
   
-  getFetch
+    getProductos()
   .then(res => setProductos(res))
   .catch(err => console.log(err))
   .finally(()=> setloading(false))   
@@ -23,7 +24,11 @@ useEffect(() => {
 
 
 return (
-<div className="container">
+
+    //<div className="section" id='novedades'>
+    
+    <Section
+    inner={<div className="container">
 
     <h2 className="titulo "> {titulo}</h2>
 
@@ -31,10 +36,10 @@ return (
 
         {loading ? <Loading></Loading>:
         
-            productos.map( p =>
+            
 
-                <ItemList key={p.id} nombre={p.name} numero={p.issue} portada={p.cover} stock={p.stock}></ItemList>
-            )
+            <ItemList productos={productos}></ItemList>
+            
         
         
         }
@@ -45,6 +50,12 @@ return (
 
 
 
-</div>
+</div>}
+    >
+        
+        </Section>
+
+    //</div>
+
 )
 }

@@ -1,26 +1,20 @@
 import React from 'react';
-import { ItemCount } from '../ItemCount/ItemCount';
+import { Item } from '../Item/Item';
 
-export const ItemList = ({nombre,numero,portada,stock}) => {
+
+export const ItemList = ({productos}) => {
   
-    return <div className="col-md-3  col-6">
+    return (
+            <>
+            
+                {
+                    productos.map((p) => <Item key={p.id} stock={p.stock} publisher={p.publisher} name={p.name} issue={p.issue} cover={p.cover} price={p.price}></Item>
+                        
+                        
+                    )
+                }
+            </>
 
-  
-
-  <div className="card ">
-    <div className="card-header text-center">
-      <p className="no-dec" href="pages/comics/example/comic_view.html">{nombre} - <b>#{numero}</b></p>
-
-    </div>
-
-    <img className="img-fluid" src={portada} alt="Comic Novedad Demon Slayer"/>
-
-    <ItemCount cantidad={stock}></ItemCount>
-
-  </div>
-
-
-
-
-</div>;
+    )
+    
 };
