@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
-export const Item = ({name,stock,publisher,cover,price,issue}) => {
+export const Item = ({name,stock,publisher,cover,price,issue,id}) => {
   return (
 
   <div className="col-md-3  col-6">
@@ -20,7 +21,11 @@ export const Item = ({name,stock,publisher,cover,price,issue}) => {
         <div className='d-flex justify-content-around'>
 
         <div className='my-auto'><b>Precio: </b>{price}</div>
-        <button className='btn btn-dark text-white'>Ver Detalle</button>
+
+        <Link to={`/detalle/${id}`}>
+          <button className='btn btn-dark text-white'>Ver Detalle</button>
+        </Link>
+        
 
         </div>
         

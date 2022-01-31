@@ -2,6 +2,7 @@ import {CartWidget} from '../CartWidget/CartWidget';
 import {NavItem} from './NavItem';
 
 import logo from '../../../assets/img/logo.png';
+import { Link, NavLink } from 'react-router-dom';
 
 
 export const NavBar = ({brand}) => {
@@ -19,10 +20,12 @@ return (
             
 
         </p>
-
+        <Link to='/'>
         <h1 className="navbar-brand">
             {brand}
         </h1>
+        </Link>
+        
 
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,9 +36,25 @@ return (
 
             <ul className="navbar-nav mr-auto d-flex justify-content-center align-items-center">
 
-                <NavItem item="Marvel"/>
-                <NavItem item="Dc Comics"/>
-                <NavItem item="Image Comics"/>
+                <NavLink to='categoria/marvel'>
+                
+                    <NavItem item="Marvel"/>
+
+                </NavLink>
+
+                <NavLink to='categoria/dc-comics'>
+
+                    <NavItem item="Dc Comics"/>
+                    
+                </NavLink>
+
+                <NavLink to='categoria/image-comics'>
+
+                    <NavItem item="Image Comics"/>
+                    
+                </NavLink>
+                
+                
 
             </ul>
 
@@ -44,9 +63,11 @@ return (
         </div>
 
         <div >
+        <Link to='/cart'>
+        <p className="nav-link m-auto text-white" ><CartWidget></CartWidget></p>
 
-            <p className="nav-link m-auto text-white" ><CartWidget></CartWidget></p>
-
+        </Link>
+           
         </div>
 
         
