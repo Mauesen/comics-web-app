@@ -45,7 +45,7 @@ return (
 
         <div >
 
-            <p className="nav-link  text-white" ><CartWidget></CartWidget></p>
+            <p className="nav-link m-auto text-white" ><CartWidget></CartWidget></p>
 
         </div>
 

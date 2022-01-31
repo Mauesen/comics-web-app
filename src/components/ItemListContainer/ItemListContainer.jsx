@@ -24,38 +24,7 @@ useEffect(() => {
 
 
 return (
-
-    //<div className="section" id='novedades'>
-    
-    <Section
-    inner={<div className="container">
-
-    <h2 className="titulo "> {titulo}</h2>
-
-    <div className="row">
-
-        {loading ? <Loading></Loading>:
         
-            
+    <Section sectionId="novedades" titulo="Novedades" innerSection={loading ? <Loading/>:<ItemList productos={productos}/>}/>
 
-            <ItemList productos={productos}></ItemList>
-            
-        
-        
-        }
-
-        
-
-    </div>
-
-
-
-</div>}
-    >
-        
-        </Section>
-
-    //</div>
-
-)
-}
+)}
