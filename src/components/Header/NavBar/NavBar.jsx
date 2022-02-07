@@ -6,6 +6,10 @@ import { Link, NavLink } from 'react-router-dom';
 
 
 export const NavBar = ({brand}) => {
+
+const linkStyle ={
+    textDecoration: 'none'
+}
    
 return (
 
@@ -20,7 +24,7 @@ return (
             
 
         </p>
-        <Link to='/'>
+        <Link to='/' style={linkStyle}>
         <h1 className="navbar-brand">
             {brand}
         </h1>
@@ -36,21 +40,21 @@ return (
 
             <ul className="navbar-nav mr-auto d-flex justify-content-center align-items-center">
 
-                <NavLink to='categoria/marvel'>
+                <NavLink to='categoria/Marvel' className='no-dec'>
                 
                     <NavItem item="Marvel"/>
 
                 </NavLink>
 
-                <NavLink to='categoria/dc-comics'>
+                <NavLink to='categoria/Dc-Comics' className='no-dec'>
 
                     <NavItem item="Dc Comics"/>
                     
                 </NavLink>
 
-                <NavLink to='categoria/image-comics'>
+                <NavLink to='categoria/Shonen-Jump' className='no-dec'>
 
-                    <NavItem item="Image Comics"/>
+                    <NavItem item="Manga"/>
                     
                 </NavLink>
                 
@@ -63,7 +67,7 @@ return (
         </div>
 
         <div >
-        <Link to='/cart'>
+        <Link to='/carrito' style={linkStyle}>
         <p className="nav-link m-auto text-white" ><CartWidget></CartWidget></p>
 
         </Link>

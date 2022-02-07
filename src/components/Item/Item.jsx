@@ -15,7 +15,7 @@ export const Item = ({name,stock,publisher,cover,price,issue,id}) => {
   
       </div>
   
-      <img className="img-fluid" src={cover} alt="Comic Novedad Demon Slayer"/>
+      <img className="img-fluid" src={cover} alt={name}/>
   
       <div className="card-footer ">
         <div className='d-flex justify-content-around'>

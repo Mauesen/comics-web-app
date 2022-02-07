@@ -1,16 +1,16 @@
 import React from 'react';
 
-export const Section = ({innerSection,titulo,sectionId}) => {
+export const Section = ({titulo,sectionId,subtitulo,children}) => {
   return (
     <div className="section" id={sectionId}>
 
       <div className="container">
 
-        <h2 className="titulo "> {titulo}</h2>
+        <h2 className="titulo "> {titulo} {subtitulo? `: ${subtitulo}` : ''}</h2>
 
-        <div className="row">
+        <div className="row center">
 
-          {innerSection}
+          {children}
       
         </div>
 

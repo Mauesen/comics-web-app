@@ -1,32 +1,56 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import getProductos from '../../assets/utilities/mock';
 import { ItemDetail } from '../ItemDetail/ItemDetail';
+import { Section } from '../Section/Section';
+import { Loading } from '../Loading/Loading'
 
 
 
 
 
-export const ItemDetailContainer = () => {
+export const ItemDetailContainer = ({titulo}) => {
 
   const [producto, setProducto] = useState({});
+  const [loading, setloading] = useState(true)
 
-  const productoId = '1';
+
+  const {idProducto} = useParams();
+
 
   useEffect(() => {
-    
-    getProductos()
-    .then(res => setProducto(res))
-    .then((data) => {
-      setProducto(data.find((item) => item.id === productoId));
-    })
-    .catch((err) => console.log(err));
-  }, []);
-  
- 
 
+
+    if (idProducto) {
+
+      getProductos()
+      .then(res => setProducto(res.find(p=> p.id === idProducto)))
+      .catch(err => console.log(err))
+      .finally(()=> setloading(false))
+      
+      
+    }
+    else{
+  
+      getProductos()
+      .then(res => setProducto(res))
+      .catch(err => console.log(err))
+      .finally(()=> setloading(false))   
+  
+    }
+    
+   
+  }, [idProducto]);
+  
 
   return (
 
-    <ItemDetail producto={producto}></ItemDetail>
+    <Section sectionId="novedades" titulo={titulo} subtitulo={producto.name} >
+
+      {loading ? <Loading/>:<ItemDetail cover={producto.cover} producto={producto}></ItemDetail>}
+      
+    </Section>
+
+   
   );
 };

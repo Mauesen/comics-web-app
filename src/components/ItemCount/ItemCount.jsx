@@ -3,14 +3,19 @@ import React, { useState } from 'react';
 
 
 
-export const ItemCount = ({cantidad}) => {
-
-let stock = cantidad;
+export const ItemCount = ({stock,onAdd,cantInicial}) => {
 
 
-const [count, setCount] = useState(0);
+const [count, setCount] = useState(cantInicial);
 
-const sumar = ()=>{
+
+const agregarALCarrito=()=>{
+  onAdd(count)
+}
+
+
+
+const handleAumentar = ()=>{
 
   if (count < stock) {
 
@@ -19,9 +24,9 @@ const sumar = ()=>{
   }
 }
 
-const restar = ()=>{
+const handlerRestar = ()=>{
 
-  if (count >= 1) {
+  if (count > cantInicial) {
 
     setCount(count -1);
     
@@ -30,12 +35,12 @@ const restar = ()=>{
 
 return  <div className="card-footer">
         <div className='row center'> 
-          <input className='col-3' readOnly value={count} /> 
-          <button className='btn text-white bg-dark mx-1 col-3' onClick={restar}>-</button>  
-          <button className='btn text-white bg-dark mx-1 col-3' onClick={sumar}>+</button>
+          <div className='col-3' > {count}</div>
+          <button className='btn text-white bg-dark mx-1 col-3' onClick={handlerRestar}>-</button>  
+          <button className='btn text-white bg-dark mx-1 col-3' onClick={handleAumentar}>+</button>
         </div>
         <div className='center py-2'>
-          <button className='btn text-white bg-dark'>Agregar al Carrito</button>
+          <button className='btn text-white bg-dark' onClick={agregarALCarrito}>Agregar al Carrito</button>
         </div>
       </div>
 

@@ -8,7 +8,7 @@ export const ItemList = ({productos}) => {
             <>
             
                 {
-                    productos.map((p) => <Item key={p.id} id={p.id} stock={p.stock} publisher={p.publisher} name={p.name} issue={p.issue} cover={p.cover} price={p.price}></Item>
+                    productos.map((p) => <Item key={p.id} id={p.id} stock={p.stock} publisher={p.publisher} name={p.name} issue={p.issue} cover={p.cover} price={p.price}></Item> 
                         
                         
                     )

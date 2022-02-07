@@ -32,7 +32,7 @@ useEffect(() => {
 
   }
   
-  console.log(idCategoria)
+  /* console.log(idCategoria) */
 
 
 }, [idCategoria]);
@@ -41,6 +41,11 @@ useEffect(() => {
 
 return (
         
-    <Section sectionId="novedades" titulo="Novedades" innerSection={loading ? <Loading/>:<ItemList productos={productos}/>}/>
+  
+    <Section sectionId="novedades" titulo={titulo}>
+
+      {loading ? <Loading/>:<ItemList productos={productos}/>}
+    
+    </Section>
 
 )}
